@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "558590389891",
+    "project_id": "notes-94faf",
+    "storage_bucket": "notes-94faf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558590389891:android:a77fefe3268cda7b83f5b6",
+        "android_client_info": {
+          "package_name": "com.khuram.notes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558590389891-tfm3v6cusji75r6ttlu1nmdo5e5qebpb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8TjqJ3vFseYjSXynAnfIrGBYHlw9nwy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558590389891-tfm3v6cusji75r6ttlu1nmdo5e5qebpb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
