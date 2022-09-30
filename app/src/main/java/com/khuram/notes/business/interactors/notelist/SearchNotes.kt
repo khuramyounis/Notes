@@ -41,8 +41,10 @@ class SearchNotes(
                     SEARCH_NOTES_SUCCESS
                 var uiComponentType: UIComponentType? = UIComponentType.None
                 if(resultObj.isEmpty()){
-                    message = SEARCH_NOTES_NO_MATCHING_RESULTS
-                    uiComponentType = UIComponentType.Toast
+                    if (query.isNotEmpty()) {
+                        message = SEARCH_NOTES_NO_MATCHING_RESULTS
+                        uiComponentType = UIComponentType.Toast
+                    }
                 }
                 return DataState.data(
                     response = Response(

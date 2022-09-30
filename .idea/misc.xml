@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/fragment_note_detail.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/fragment_note_list.xml" value="0.1375" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.1171875" />
+        <entry key="app/src/main/res/layout/layout_filter.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/layout_multiselection_toolbar.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/layout_note_detail_toolbar.xml" value="0.103125" />
         <entry key="app/src/main/res/layout/layout_note_list_item.xml" value="0.1171875" />

@@ -61,8 +61,7 @@ constructor(
         _binding = FragmentNoteDetailBinding.inflate(inflater, container, false)
         _toolbarBinding = binding.noteDetailToolbar
 
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -141,9 +140,7 @@ constructor(
     }
 
     private fun subscribeObservers(){
-
         viewModel.viewState.observe(viewLifecycleOwner) { viewState ->
-
             if (viewState != null) {
                 viewState.note?.let { note ->
                     setNoteTitle(note.title)
@@ -157,21 +154,16 @@ constructor(
         }
 
         viewModel.stateMessage.observe(viewLifecycleOwner) { stateMessage ->
-
             stateMessage?.response?.let { response ->
-
                 when (response.message) {
-
                     UPDATE_NOTE_SUCCESS -> {
                         viewModel.setIsUpdatePending(false)
                         viewModel.clearStateMessage()
                     }
-
                     DELETE_NOTE_SUCCESS -> {
                         viewModel.clearStateMessage()
                         onDeleteSuccess()
                     }
-
                     else -> {
                         uiController.onResponseReceived(
                             response = stateMessage.response,
@@ -182,15 +174,12 @@ constructor(
                             }
                         )
                         when (response.message) {
-
                             UPDATE_NOTE_FAILED_PK -> {
                                 findNavController().popBackStack()
                             }
-
                             NOTE_DETAIL_ERROR_RETRIEVING_SELECTED_NOTE -> {
                                 findNavController().popBackStack()
                             }
-
                             else -> { }
                         }
                     }
@@ -199,7 +188,6 @@ constructor(
         }
 
         viewModel.collapsingToolbarState.observe(viewLifecycleOwner) { state ->
-
             when (state) {
                 is CollapsingToolbarState.Expanded -> {
                     transitionToExpandedMode()
@@ -211,13 +199,12 @@ constructor(
         }
 
         viewModel.noteTitleInteractionState.observe(viewLifecycleOwner) { state ->
-
             when (state) {
                 is NoteInteractionState.EditState -> {
                     binding.noteTitle.enableContentInteraction()
-                    view?.showKeyboard()
                     displayEditStateToolbar()
                     viewModel.setIsUpdatePending(true)
+                    view?.showKeyboard()
                 }
                 is NoteInteractionState.DefaultState -> {
                     binding.noteTitle.disableContentInteraction()
@@ -226,13 +213,12 @@ constructor(
         }
 
         viewModel.noteBodyInteractionState.observe(viewLifecycleOwner) { state ->
-
             when (state) {
                 is NoteInteractionState.EditState -> {
                     binding.noteBody.enableContentInteraction()
-                    view?.showKeyboard()
                     displayEditStateToolbar()
                     viewModel.setIsUpdatePending(true)
+                    view?.showKeyboard()
                 }
                 is NoteInteractionState.DefaultState -> {
                     binding.noteBody.disableContentInteraction()
@@ -242,7 +228,6 @@ constructor(
     }
 
     private fun displayDefaultToolbar(){
-
         activity?.let { a ->
             toolbarBinding.toolbarPrimaryIcon.setImageDrawable(
                 ResourcesCompat.getDrawable(
@@ -282,6 +267,7 @@ constructor(
 
     private fun setNoteTitle(title: String) {
         binding.noteTitle.setText(title)
+        binding.noteTitle.setSelection(binding.noteTitle.text.length)
     }
 
     private fun getNoteTitle(): String{
@@ -294,6 +280,7 @@ constructor(
 
     private fun setNoteBody(body: String?){
         binding.noteBody.setText(body)
+        binding.noteBody.setSelection(binding.noteBody.text.length)
     }
 
     private fun getSelectedNoteFromPreviousFragment(){
@@ -395,9 +382,7 @@ constructor(
                                         initiateDeleteTransaction(note)
                                     }
                                 }
-                                override fun cancel() {
-                                    // do nothing
-                                }
+                                override fun cancel() { }
                             }
                         ),
                         messageType = MessageType.Info

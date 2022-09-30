@@ -28,7 +28,8 @@ constructor(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkFirebaseAuth()
+        //checkFirebaseAuth()
+        subscribeObservers()
     }
 
     private fun checkFirebaseAuth(){
